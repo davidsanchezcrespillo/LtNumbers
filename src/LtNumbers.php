@@ -9,10 +9,20 @@ class LtNumbers {
       "3" => "trys",
       "4" => "keturi",
       "5" => "penki",
-      "6" => "sesi",
+      "6" => "šeši",
       "7" => "septyni",
-      "8" => "astuoni",
-      "9" => "devyni"
+      "8" => "aštuoni",
+      "9" => "devyni",
+      "10" => "dešimt",
+      "11" => "vienuolika",
+      "12" => "dvylika",
+      "13" => "trylika",
+      "14" => "keturiolika",
+      "15" => "penkiolika",
+      "16" => "šešiolika",
+      "17" => "septyniolika",
+      "18" => "aštuoniolika",
+      "19" => "devyniolika"
   );
  
   public function hasCheese($bool = true)
@@ -26,8 +36,8 @@ class LtNumbers {
 		  return "";
 	  }
       
-      if ($number < 10) {
-		  return $this->basicNumbers[$number];
+      if ($number < 20) {
+		  return $this->basicNumbers[0 + $number];
 	  }
 
 	  return "!";
