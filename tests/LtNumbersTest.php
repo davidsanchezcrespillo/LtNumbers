@@ -81,6 +81,9 @@ class LtNumbersTest extends PHPUnit_Framework_TestCase {
 
 	  $this->assertEquals("aštuoni šimtai septyniasdešimt septyni tūkstančiai trys šimtai dvidešimt vienas", $this->_ltNumbers->numberToText("877321"));
 	  $this->assertEquals("aštuoni šimtai septyniasdešimt vienas tūkstantis trys šimtai dvidešimt vienas", $this->_ltNumbers->numberToText("871321"));
+
+	  $this->assertEquals("aštuoni šimtai penkiolika tūkstančių trys šimtai dvidešimt vienas", $this->_ltNumbers->numberToText("815321"));
+	  $this->assertEquals("penkiolika tūkstančių", $this->_ltNumbers->numberToText("15000"));
   }
 }
 

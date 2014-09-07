@@ -35,6 +35,11 @@ class LtNumbers {
       "8" => "aštuoniasdešimt",
       "9" => "devyniasdešimt",
   );
+  
+  private $_genitives = array(
+      "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+      "20", "30", "40", "50", "60", "70", "80", "90"
+  );
  
   public function hasCheese($bool = true)
   {
@@ -88,6 +93,11 @@ class LtNumbers {
 		  if (($thousands % 10) == 1) {
 			  $thousandsWord = "tūkstantis";
 		  }
+		  $tensUnits = $thousands % 100;
+		  if (in_array($tensUnits, $this->_genitives)) {
+			  $thousandsWord = "tūkstančių";
+		  }
+
 		  if ($hundredsTensUnits == 0) {
 			  if ($thousands == 1) {
 				  return "tūkstantis";
