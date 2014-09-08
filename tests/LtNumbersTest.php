@@ -85,5 +85,14 @@ class LtNumbersTest extends PHPUnit_Framework_TestCase {
 	  $this->assertEquals("aštuoni šimtai penkiolika tūkstančių trys šimtai dvidešimt vienas", $this->_ltNumbers->numberToText("815321"));
 	  $this->assertEquals("penkiolika tūkstančių", $this->_ltNumbers->numberToText("15000"));
   }
+  
+  public function testLessThanOneBillion()
+  {
+      $this->assertEquals("milijonas", $this->_ltNumbers->numberToText("1000000"));
+      $this->assertEquals("trys milijonai", $this->_ltNumbers->numberToText("3000000"));
+	  $this->assertEquals("keturi milijonai aštuoni šimtai penkiolika tūkstančių trys šimtai dvidešimt vienas", $this->_ltNumbers->numberToText("4815321"));
+	  $this->assertEquals("keturi šimtai penkiolika milijonų aštuoni šimtai penkiolika tūkstančių trys šimtai dvidešimt vienas", $this->_ltNumbers->numberToText("415815321"));
+	  $this->assertEquals("keturi šimtai milijonų aštuoni šimtai penkiolika tūkstančių trys šimtai dvidešimt vienas", $this->_ltNumbers->numberToText("400815321"));
+  }
 }
 

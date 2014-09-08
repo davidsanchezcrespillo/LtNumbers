@@ -37,7 +37,7 @@ class LtNumbers {
   );
   
   private $_genitives = array(
-      "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+      "0", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
       "20", "30", "40", "50", "60", "70", "80", "90"
   );
  
@@ -111,6 +111,34 @@ class LtNumbers {
 		  
 		  return $this->numberToText($thousands) . " $thousandsWord " . $this->numberToText($hundredsTensUnits);
 	  }
+	  
+	  if ($number < 1000000000) {
+		  $millions = floor($number / 1000000);
+		  $hundredThousands = $number % 1000000;
+		  
+		  $millionsWord = "milijonai";
+		  if (($millions % 10) == 1) {
+			  $millionsWord = "milijonas";
+		  }
+		  $tensUnits = $millions % 100;
+		  if (in_array($tensUnits, $this->_genitives)) {
+			  $millionsWord = "milijonų";
+		  }
+		  
+		  if ($hundredThousands == 0) {
+			  if ($millions == 1) {
+				  return "milijonas";
+			  }
+			  return $this->numberToText($millions) . " $millionsWord";
+		  }
+		  
+		  if ($millions == 1) {
+			  return "milijonas " . $this->numberToText($hundredThousands);
+		  }
+		  
+		  return $this->numberToText($millions) . " $millionsWord " . $this->numberToText($hundredThousands);
+	  }
+
 	  return "!";
   }
 }
