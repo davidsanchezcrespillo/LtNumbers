@@ -11,18 +11,13 @@ class LtNumbersTest extends PHPUnit_Framework_TestCase {
 	  $this->_ltNumbers = new LtNumbers;
   }
   
-  public function testHasCheese()
-  {
-    $this->assertTrue($this->_ltNumbers->hasCheese());
-  }
- 
   public function testNumberToText()
   {
 	  $this->assertEquals("", $this->_ltNumbers->numberToText(""));
 	  $this->assertEquals("", $this->_ltNumbers->numberToText("fjfjeij"));
 	  $this->assertEquals("", $this->_ltNumbers->numberToText("-------"));
-	  $this->assertNotEquals("", $this->_ltNumbers->numberToText("0"));
-	  $this->assertNotEquals("", $this->_ltNumbers->numberToText("0000"));
+	  $this->assertEquals("", $this->_ltNumbers->numberToText("-3"));
+	  $this->assertEquals("", $this->_ltNumbers->numberToText("4.5"));
   }
   
   public function testBasicNumbers()

@@ -41,14 +41,23 @@ class LtNumbers {
       "20", "30", "40", "50", "60", "70", "80", "90"
   );
  
-  public function hasCheese($bool = true)
-  {
-    return $bool;
-  }
-
+  /**
+   * Convert a positive number to its textual form.
+   * Numbers from 0 to 1000 000 000 (one billion) are allowed.
+   * If the number is out of range, an empty string is returned.
+   */
   public function numberToText($number)
   {
+	  $inputIsInt = filter_var($number, FILTER_VALIDATE_INT);
+	  if ($inputIsInt === FALSE) {
+		  return "";
+	  }
+
 	  if (!is_numeric($number)) {
+		  return "";
+	  }
+
+	  if ((0 + $number) < 0) {
 		  return "";
 	  }
       
@@ -138,7 +147,11 @@ class LtNumbers {
 		  
 		  return $this->numberToText($millions) . " $millionsWord " . $this->numberToText($hundredThousands);
 	  }
+	  
+	  if ($number == 1000000000) {
+		  return "bilijonas";
+      }
 
-	  return "!";
+	  return "";
   }
 }
