@@ -1,7 +1,12 @@
 <?php 
 namespace LtWords\LtNumbers;
  
+/**
+ * Class to convert numeric strings into textual form in Lithuanian
+ * language.
+ */
 class LtNumbers {
+  /** Basic numbers, 0-19 */
   private $_basicNumbers = array(
       "0" => "nulis",
       "1" => "vienas",
@@ -25,6 +30,7 @@ class LtNumbers {
       "19" => "devyniolika"
   );
   
+  /** Multiples of 10 */
   private $_tens = array(
       "2" => "dvidešimt",
       "3" => "trisdešimt",
@@ -36,6 +42,7 @@ class LtNumbers {
       "9" => "devyniasdešimt",
   );
   
+  /** Terminations needing plural genitive after them */
   private $_genitives = array(
       "0", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
       "20", "30", "40", "50", "60", "70", "80", "90"
@@ -149,7 +156,7 @@ class LtNumbers {
 	  }
 	  
 	  if ($number == 1000000000) {
-		  return "bilijonas";
+		  return "milijardas";
       }
 
 	  return "";
