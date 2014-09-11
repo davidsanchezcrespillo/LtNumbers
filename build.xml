@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project name="LtNumbers" default="build" basedir="." description="This is an example buildfile for Phing.">
+<project name="LtNumbers" default="build" basedir="." description="Buildfile for LtNumbers.">
 	<target name="test">
 		<phpunit haltonerror="true" haltonfailure="true">
 			<batchtest>
